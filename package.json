@@ -1,0 +1,19 @@
+{
+  "name": "gymos",
+  "private": true,
+  "version": "1.0.0",
+  "description": "GymOS — gestión de gimnasio",
+  "type": "module",
+  "workspaces": ["server", "web"],
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "node scripts/dev.mjs",
+    "seed": "npm run seed -w server",
+    "test": "npm test -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "build": "npm run build -w web",
+    "start": "npm start -w server",
+    "docs:endpoints": "node --disable-warning=ExperimentalWarning scripts/endpoints.ts"
+  },
+  "engines": { "node": ">=22.18" }
+}
