@@ -1,0 +1,12 @@
+{
+  // Despliegue en Cloudflare: sirve solo el frontend compilado (web/dist) como sitio estático.
+  // "name" debe coincidir con el nombre del Worker en el panel de Cloudflare.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ginnasiocode",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./web/dist",
+    // React Router: cualquier ruta desconocida devuelve index.html.
+    "not_found_handling": "single-page-application"
+  }
+}
