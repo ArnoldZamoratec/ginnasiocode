@@ -21,6 +21,8 @@ export const config = {
   accessTokenTtlSec: Number(process.env.ACCESS_TOKEN_TTL_SEC ?? 15 * 60),
   refreshTokenTtlDays: Number(process.env.REFRESH_TOKEN_TTL_DAYS ?? 7),
   corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
+  // Saltos de proxy de confianza para req.ip (p. ej. "1" detrás del balanceador de Render).
+  trustProxy: /^\d+$/.test(process.env.TRUST_PROXY ?? '') ? Number(process.env.TRUST_PROXY) : (process.env.TRUST_PROXY || 'loopback'),
   mail: {
     transport: (process.env.MAIL_TRANSPORT ?? 'log') as 'log' | 'smtp',
     from: process.env.MAIL_FROM ?? 'GymOS <no-responder@gymos.local>',

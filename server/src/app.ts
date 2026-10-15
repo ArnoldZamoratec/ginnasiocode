@@ -39,7 +39,7 @@ function rateLimit(max: number, windowMs: number) {
 export function createApp() {
   const app = express();
   app.disable('x-powered-by');
-  app.set('trust proxy', 'loopback');
+  app.set('trust proxy', config.trustProxy);
 
   app.use((req, res, next) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');

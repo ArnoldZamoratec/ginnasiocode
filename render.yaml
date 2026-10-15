@@ -1,0 +1,24 @@
+# Despliegue completo (API + frontend) en Render. Render → New → Blueprint → elegir este repo.
+# Plan gratuito: sin disco persistente, así que la base de demostración se recrea en cada arranque
+# (y el servicio se duerme tras 15 min sin visitas; la primera carga tarda ~1 min).
+services:
+  - type: web
+    name: gymos
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm run seed && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24.14.1
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PASS_SECRET
+        generateValue: true
+      - key: DB_PATH
+        value: data/gymos.db
+      - key: TRUST_PROXY
+        value: "1"
