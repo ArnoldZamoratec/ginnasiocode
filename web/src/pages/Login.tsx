@@ -59,18 +59,16 @@ export function Login() {
         </Field>
         {error && <div className="notice bad" role="alert">{error}</div>}
         <Button variant="primary" size="lg" block busy={busy} disabled={!email || !password}>Ingresar</Button>
-        {import.meta.env.DEV && (
-          <div className="stack">
-            <span className="eyebrow">Cuentas de demostración · contraseña GymOS-2026</span>
-            <div className="demo">
-              {DEMO.map((d) => (
-                <button type="button" key={d.email} onClick={() => { setEmail(d.email); setPassword('GymOS-2026'); }}>
-                  <b>{d.role}</b><span>{d.email} <span className="faint">— {d.hint}</span></span>
-                </button>
-              ))}
-            </div>
+        <div className="stack">
+          <span className="eyebrow">Cuentas de demostración · contraseña GymOS-2026</span>
+          <div className="demo">
+            {DEMO.map((d) => (
+              <button type="button" key={d.email} onClick={() => { setEmail(d.email); setPassword('GymOS-2026'); }}>
+                <b>{d.role}</b><span>{d.email} <span className="faint">— {d.hint}</span></span>
+              </button>
+            ))}
           </div>
-        )}
+        </div>
       </form>
     </div>
   );

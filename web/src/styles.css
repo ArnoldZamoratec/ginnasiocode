@@ -397,7 +397,7 @@ dialog.sheet[open] { animation: rise .22s var(--ease); }
 /* login */
 .login { min-height: 100%; display: grid; grid-template-columns: 1.2fr 1fr; }
 .login-art { border-right: 1px solid var(--line); padding: 36px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-.login-art h1 { font: 900 clamp(72px, 11vw, 168px)/.8 var(--font-display); text-transform: uppercase; letter-spacing: -.005em; }
+.login-art h1 { font: 900 clamp(72px, 11vw, 168px)/.95 var(--font-display); text-transform: uppercase; letter-spacing: -.005em; }
 .login-art h1 em { font-style: normal; color: var(--accent-text); }
 .login-form { padding: 36px; display: grid; align-content: center; gap: 22px; max-width: 460px; width: 100%; justify-self: center; }
 .demo { display: grid; border-top: 1px solid var(--line); }
